@@ -73,7 +73,20 @@
         </nav>
 
         <main class="py-4">
-            @yield('app')  
+            <aside>
+                <div>
+                    <div class="aside-link">
+                        <a href="{{route('admin.home')}}">Dashboard</a>       
+                    </div>
+                    <div class="aside-link">
+                        <a href="{{route('admin.posts.index')}}">Index</a>
+                    </div>
+                    <div class="aside-link">
+                        <a href="{{route('admin.posts.create')}}">Create</a>
+                    </div>
+                </div>
+            </aside>
+            @yield('content')  
         </main>
     </div>
 </body>
