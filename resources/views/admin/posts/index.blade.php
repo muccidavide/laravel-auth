@@ -30,8 +30,8 @@
                 <td><img class="img-fluid" src="{{$post->cover_image}}" alt="cover of {{$post->title}}"></td>
                 <td>{{Str::limit($post->content,150)}}</td>
                 <td>
-                    <a class="btn btn-primary text-white btn-sm d-block mt-1" href="{{route('admin.posts.show', $post->id)}}">View</a>
-                    <a class="btn btn-secondary text-white btn-sm d-block mt-1" href="{{route('admin.posts.edit', $post->id)}}">Edit</a>
+                    <a class="btn btn-primary text-white btn-sm d-block mt-1" href="{{route('admin.posts.show', $post->slug)}}">View</a>
+                    <a class="btn btn-secondary text-white btn-sm d-block mt-1" href="{{route('admin.posts.edit', $post->slug)}}">Edit</a>
                     <!-- Button trigger modal -->
                     <button type="button" class="btn btn-danger btn-sm d-block mt-1" data-toggle="modal" data-target="#delete-post-{{$post->id}}">
                         Delete
@@ -52,7 +52,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <form action="{{route('admin.posts.destroy', $post->id)}}" method="post">
+                                    <form action="{{route('admin.posts.destroy', $post->slug)}}" method="post">
                                         @csrf
                                         @method('DELETE')
 
@@ -62,8 +62,6 @@
                             </div>
                         </div>
                     </div>
-
-
                 </td>
             </tr>
             @empty
@@ -74,8 +72,4 @@
         </tbody>
     </table>
 </div>
-
-
-
-
 @endsection

@@ -87,9 +87,9 @@ class PostController extends Controller
         $val_data = $request->validated();
         //dd($val_data);
         // Gererate the slug
-        //$slug = Post::generateSlug($request->title);
+        $slug = Post::generateSlug($request->title);
         //dd($slug);
-        //$val_data['slug'] = $slug;
+        $val_data['slug'] = $slug;
         // update the resource
         $post->update($val_data);
 
